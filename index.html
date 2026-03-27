@@ -6,24 +6,26 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: yes" 
-             color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
-             vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
       <a-assets>
-        <a-asset-item id="modeloAqueduto" src="./assets/aqueduto.glb"></a-asset-item>
+        <img id="fotoAntiga" src="./assets/aqueduto_antigo.jpg">
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-<a-entity mindar-image-target="targetIndex: 0">
-  <a-gltf-model 
-    src="#modeloAqueduto" 
-    id="aqueduto-modelo"
-    position="0 0 0.1" 
-    scale="0.00001 0.00001 0.00001" 
-    rotation="90 0 0">
-  </a-gltf-model>
-</a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        
+        <a-text value="AQUEDUTO DA AMOREIRAS" position="-0.8 0.6 0" color="#FFFFFF" width="3" font="aileronwhite"></a-text>
+        
+        <a-plane position="0 -0.6 0.1" width="1.5" height="0.4" color="#333" opacity="0.8">
+          <a-text value="Local: Elvas, Portugal\nSeculo: XVI - XVII\nExtensao: 8.5 km" align="center" width="2" color="white"></a-text>
+        </a-plane>
+
+        <a-box position="0.8 0 0.2" scale="0.2 0.2 0.2" color="#FFD700" 
+               animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"></a-box>
+
+      </a-entity>
     </a-scene>
   </body>
 </html>
